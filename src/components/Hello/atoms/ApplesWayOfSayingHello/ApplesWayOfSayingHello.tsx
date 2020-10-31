@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 const TextBlock = styled.div`
-  background-color: #fffacd;
+  background-color: #fcc0b8;
   text-align: left;
   font-weight: bold;
   font-size: 30px;
