@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 
 const TextBlock = styled.div`
   background-color: #fffacd;
+  text-align: left;
+  font-weight: bold;
+  font-size: 30px;
 
   /* Fix width to fit all hello phrases */
-  width: 100px;
+  width: 110px;
 
   /* We want pulsating hello's */
   animation: pulse 5s infinite;
@@ -56,5 +59,9 @@ export const ApplesWayOfSayingHello: React.FC = () => {
     }, 5000);
   }, [hello, setHello]);
 
-  return <TextBlock> {hello.word}</TextBlock>;
+  return (
+    <>
+      <TextBlock> {hello.word}</TextBlock>
+    </>
+  );
 };
