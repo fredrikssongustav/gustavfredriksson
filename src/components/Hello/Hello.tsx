@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
 
 const CenteredContainer = styled.div`
   justify-content: center;
@@ -10,7 +11,10 @@ const CenteredContainer = styled.div`
 export const Hello: React.FC = () => {
   return (
     <CenteredContainer>
-      <div>My name is Gustav Fredriksson</div>
+      <div>
+        <ApplesWayOfSayingHello />
+        My name is Gustav Fredriksson
+      </div>
     </CenteredContainer>
   );
 };
