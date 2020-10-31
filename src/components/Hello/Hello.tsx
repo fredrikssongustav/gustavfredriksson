@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
 import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
+import { YouFindMeHere } from "./atoms/YouFindMeHere/YouFindMeHere";
 
 const CenteredContainer = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const Hello: React.FC = () => {
         <div>
           <ApplesWayOfSayingHello />
           <ThisIsMe />
+          <YouFindMeHere />
         </div>
       </RowContainer>
     </CenteredContainer>
