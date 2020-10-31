@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
+import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
 
 const CenteredContainer = styled.div`
   display: flex;
@@ -15,6 +16,8 @@ const CenteredContainer = styled.div`
 
 const RowContainer = styled.div`
   flex-direction: row;
+  max-width: 600px;
+  text-align: left;
 `;
 
 export const Hello: React.FC = () => {
@@ -23,7 +26,7 @@ export const Hello: React.FC = () => {
       <RowContainer>
         <div>
           <ApplesWayOfSayingHello />
-          <div>My name is Gustav Fredriksson</div>
+          <ThisIsMe />
         </div>
         <div />
       </RowContainer>
