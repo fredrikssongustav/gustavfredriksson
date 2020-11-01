@@ -10,7 +10,7 @@ const CenteredContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 16px;
+  margin: 32px;
 
   /* Bump text-size */
   font-size: 20px;
