@@ -13,12 +13,14 @@ const BownjournoGif = styled.img.attrs({
   alt: "brad-pitt-says-bonjour",
 })`
   border: 5px solid #fcc0b8;
-  max-width: 400px;
+  width: calc(100% - 10px);
 `;
 
 const Time = styled.div`
   padding: 10px;
   background-color: #fcc0b8;
+  width: 20px;
+  text-align: center;
 
   /* Position text in the upper right corner */
   position: absolute;
@@ -29,6 +31,8 @@ const Time = styled.div`
 const HiddenAbsoluteContent = styled.div<{ show: boolean }>`
   position: absolute;
   visibility: ${(props) => (props.show ? "unset" : "hidden")};
+  max-width: 400px;
+  max-width: 80%;
 `;
 
 export const GifModal: React.FC = ({ children }) => {
