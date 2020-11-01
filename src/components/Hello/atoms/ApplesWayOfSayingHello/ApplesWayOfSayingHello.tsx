@@ -59,9 +59,5 @@ export const ApplesWayOfSayingHello: React.FC = () => {
     }, 5000);
   }, [hello, setHello]);
 
-  return (
-    <>
-      <TextBlock> {hello.word}</TextBlock>
-    </>
-  );
+  return <TextBlock> {hello.word}</TextBlock>;
 };
