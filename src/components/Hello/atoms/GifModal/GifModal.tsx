@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import bonjour from "./bonjour.gif";
 
-const GifModalContainer = styled.div`
+const GifModalContainer = styled.a`
   :hover {
     cursor: pointer;
   }
