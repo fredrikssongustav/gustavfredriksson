@@ -63,7 +63,7 @@ export const YouFindMeHere: React.FC = () => {
       <a href="https://www.linkedin.com/in/gustav-fredriksson-98549313a">
         <LinkedInSVG />
       </a>
-      <a href="mailto://gustav_fredriksson@live.se">
+      <a href="mailto:gustav_fredriksson@live.se">
         <MailSVG />
       </a>
     </Container>
