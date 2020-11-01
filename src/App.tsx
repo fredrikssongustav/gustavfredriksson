@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Hello } from "./components/Hello/Hello";
 
 const FullPageContainer = styled.article`
+  position: fixed;
   display: flex;
   width: 100vw;
   height: 100vh;
