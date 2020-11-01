@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
+import { GifModal } from "./atoms/GifModal/GifModal";
 import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
+import { YouFindMeHere } from "./atoms/YouFindMeHere/YouFindMeHere";
 
 const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 16px;
 
   /* Bump text-size */
   font-size: 20px;
@@ -17,7 +20,7 @@ const CenteredContainer = styled.div`
 const RowContainer = styled.div`
   flex-direction: row;
   max-width: 600px;
-  text-align: left;
+  text-align: justify;
 `;
 
 export const Hello: React.FC = () => {
@@ -25,10 +28,12 @@ export const Hello: React.FC = () => {
     <CenteredContainer>
       <RowContainer>
         <div>
-          <ApplesWayOfSayingHello />
+          <GifModal>
+            <ApplesWayOfSayingHello />
+          </GifModal>
           <ThisIsMe />
+          <YouFindMeHere />
         </div>
-        <div />
       </RowContainer>
     </CenteredContainer>
   );
