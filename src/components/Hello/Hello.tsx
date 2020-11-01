@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
+import { GifModal } from "./atoms/GifModal/GifModal";
 import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
 import { YouFindMeHere } from "./atoms/YouFindMeHere/YouFindMeHere";
 
@@ -27,7 +28,9 @@ export const Hello: React.FC = () => {
     <CenteredContainer>
       <RowContainer>
         <div>
-          <ApplesWayOfSayingHello />
+          <GifModal>
+            <ApplesWayOfSayingHello />
+          </GifModal>
           <ThisIsMe />
           <YouFindMeHere />
         </div>
