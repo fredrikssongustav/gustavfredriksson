@@ -1,16 +1,20 @@
 {
-  "hosting": {
-    "public": "build",
+  "hosting": [{
+    "target": "api",
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "app"
+      }
+    ]
+  },{
+    "target":"client",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
-  }
+  }]
 }
