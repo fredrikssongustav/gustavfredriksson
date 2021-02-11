@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import styled from "styled-components";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Hello } from "./components/Hello/Hello";
 
 const FullPageContainer = styled.article`
@@ -14,7 +15,13 @@ function App() {
   return (
     <div className="App">
       <FullPageContainer>
-        <Hello />
+        <BrowserRouter>
+          <Switch>
+            <Route path="/">
+              <Hello />
+            </Route>
+          </Switch>
+        </BrowserRouter>
       </FullPageContainer>
     </div>
   );
