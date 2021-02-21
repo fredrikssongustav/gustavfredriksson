@@ -57,6 +57,7 @@ export const ElevatorPitch: React.FC<ElevatorPitchProps> = ({
     <Page>
       <div>
         <h1>{title}</h1>
+        {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: description }} />
         <div
           style={{
