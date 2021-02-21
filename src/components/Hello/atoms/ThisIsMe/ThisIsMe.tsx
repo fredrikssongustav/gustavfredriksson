@@ -11,9 +11,9 @@ export const ThisIsMe: React.FC = () => {
         <a href="https://tink.com/">Tink</a>.
       </p>
       <p>
-        If you land on this page, you might feel lost–despite the fact that I am
+        If you land on this page that makes me glad–despite the fact that I am
         not looking for a new opportunity–I will leverage this opportunity and
-        market{" "}
+        promote{" "}
         <a href="https://www.linkedin.com/in/gustav-fredriksson-98549313a">
           my resume
         </a>
