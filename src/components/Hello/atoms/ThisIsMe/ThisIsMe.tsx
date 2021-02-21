@@ -1,8 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 
 export const ThisIsMe: React.FC = () => {
   return (
-    <>
+    <><div>
       <p>
         My name is Gustav Fredriksson and I am an engineer. Currently, I am on a
         mission to build the infrastructure of financial services of our
