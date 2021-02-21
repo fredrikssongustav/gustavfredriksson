@@ -2,11 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
-const TextBlock = styled.div`
+const TextBlock = styled.h1`
   background-color: #fcc0b8;
-  text-align: left;
-  font-weight: bold;
-  font-size: 30px;
 
   /* Fix width to fit all hello phrases */
   width: 110px;
