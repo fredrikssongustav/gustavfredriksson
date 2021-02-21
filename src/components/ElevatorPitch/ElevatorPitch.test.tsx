@@ -9,7 +9,7 @@ describe("ElevatorPitch", () => {
     } as any;
     const { getByText } = render(<ElevatorPitch {...props} />);
 
-    expect(getByText("loading")).toBeDefined();
+    expect(getByText("spinner-overlay")).toBeDefined();
   });
 
   it("should fetch data", async () => {
