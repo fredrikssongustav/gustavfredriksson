@@ -18,6 +18,11 @@ const StyledIframe = styled.iframe.attrs({
   width: 600px;
   height: 320px;
   border: 4px solid #fcc0b8;
+
+  @media only screen and (max-width: 600px) {
+    width: 250px;
+    height: 140px;
+  }
 `;
 
 export const ElevatorPitch: React.FC<ElevatorPitchProps> = ({
