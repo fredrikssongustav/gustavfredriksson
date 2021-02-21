@@ -1,3 +1,6 @@
+const BASE_URL =
+  process.env.REACT_APP_BASE_URL || "https://api.gustavfredriksson.com";
+
 type ErrorResponse = { isOK: false; errorMessage: string };
 
 type SuccessResponse<T> = { isOK: true; data: T };
@@ -14,15 +17,21 @@ export type ElevatorPitchResponse = {
   description: string;
 };
 
+function createApiPath(path: string) {
+  return `${BASE_URL}/v1/${path}`;
+}
+
 const elevatorPitch = async ({
   id,
 }: ElevatorPitchRequest): Promise<Response<ElevatorPitchResponse>> => {
-  const response = await fetch(`/v1/elevator-pitch/${id}`).then((res) => {
-    if (res.status === 200) {
-      return res.json();
+  const response = await fetch(createApiPath(`/elevator-pitch/${id}`)).then(
+    (res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+      return undefined;
     }
-    return undefined;
-  });
+  );
 
   if (response) {
     return { isOK: true, data: response };
