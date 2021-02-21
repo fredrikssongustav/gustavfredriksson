@@ -1,28 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledText = styled.div`
-  /* Unvisited link  */
-  a {
-    color: #335cad;
-  }
-
-  a:visited {
-    color: #335cad;
-  }
-
-  a:hover {
-    color: #335cad;
-  }
-
-  a:active {
-    color: #335cad;
-  }
-`;
-
 export const ThisIsMe: React.FC = () => {
   return (
-    <StyledText>
+    <>
       <p>
         My name is Gustav Fredriksson and I am an engineer. Currently, I am on a
         mission to build the infrastructure of financial services of our
@@ -38,6 +19,6 @@ export const ThisIsMe: React.FC = () => {
         </a>
         . Feeling friendly? Get in touch:
       </p>
-    </StyledText>
+    </>
   );
 };

@@ -10,6 +10,14 @@ const FullPageContainer = styled.article`
   display: flex;
   width: 100vw;
   height: 100vh;
+
+  /* Unvisited link  */
+  p > a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #335cad;
+  }
 `;
 
 function App() {
