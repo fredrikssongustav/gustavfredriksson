@@ -7,8 +7,10 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 
+const main = express();
+main.use(cors({origin: "https://gustavfredriksson.com"}));
+
 const app = express();
-app.use(cors({origin: "https://gustavfredriksson.com"}));
 
 app.get("/elevator-pitch/:elevatorPitchId", async (req, res) => {
   try {
@@ -28,4 +30,6 @@ app.get("/elevator-pitch/:elevatorPitchId", async (req, res) => {
   }
 });
 
-exports.app = functions.https.onRequest(app);
+main.use("/v1", app);
+
+exports.app = functions.https.onRequest(main);
