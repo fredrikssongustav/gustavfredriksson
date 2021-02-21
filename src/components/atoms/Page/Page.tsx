@@ -6,11 +6,17 @@ const CenteredContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 32px;
+  padding: 32px;
 
   /* Bump text-size */
   font-size: 20px;
   line-height: 1.4;
+
+  /* "Handle" iPhone navbar in bottom */
+  @media only screen and (max-width: 600px) {
+    align-items: unset;
+  }
+  overflow-y: scroll;
 `;
 
 const RowContainer = styled.div`
