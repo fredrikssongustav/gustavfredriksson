@@ -62,7 +62,7 @@ export const ElevatorPitch: React.FC<ElevatorPitchProps> = ({
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "20px",
+            padding: "32px 0",
           }}
         >
           <StyledIframe src={url} allowFullScreen />
