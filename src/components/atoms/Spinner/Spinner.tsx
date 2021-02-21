@@ -1,9 +1,18 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import styled from "styled-components";
 
 export const Spinner = styled(({ ...props }) => {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <div {...props}>🚀</div>;
+  return (
+    <span
+      {...props}
+      data-testid="spinner-overlay"
+      role="img"
+      aria-label="spinner"
+    >
+      🚀
+    </span>
+  );
 })`
   font-size: 40px;
   animation: spin 1.5s infinite;
@@ -19,8 +28,7 @@ export const Spinner = styled(({ ...props }) => {
 
 export const SpinnerOverlay = styled(({ ...props }) => {
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <div {...props} data-testid="spinner-overlay">
+    <div {...props}>
       <Spinner />
     </div>
   );
