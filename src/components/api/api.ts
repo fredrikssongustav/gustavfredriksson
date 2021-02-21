@@ -24,7 +24,7 @@ function createApiPath(path: string) {
 const elevatorPitch = async ({
   id,
 }: ElevatorPitchRequest): Promise<Response<ElevatorPitchResponse>> => {
-  const response = await fetch(createApiPath(`/elevator-pitch/${id}`)).then(
+  const response = await fetch(createApiPath(`elevator-pitch/${id}`)).then(
     (res) => {
       if (res.status === 200) {
         return res.json();
