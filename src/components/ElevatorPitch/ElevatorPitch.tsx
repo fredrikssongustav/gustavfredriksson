@@ -7,6 +7,7 @@ import {
 } from "../api/api";
 import { Page } from "../atoms/Page/Page";
 import { SpinnerOverlay } from "../atoms/Spinner/Spinner";
+import { useTrackPage } from "../atoms/useTrackPage/useTrackPage";
 
 type ElevatorPitchProps = RouteComponentProps<{ id: string }> & {
   api: typeof importedApi;
@@ -31,6 +32,8 @@ export const ElevatorPitch: React.FC<ElevatorPitchProps> = ({
   },
   api = importedApi,
 }: ElevatorPitchProps) => {
+  useTrackPage();
+
   const [elevatorPitchContent, setElevatorPitchContent] = useState<
     ElevatorPitchContent | undefined
   >(undefined);
