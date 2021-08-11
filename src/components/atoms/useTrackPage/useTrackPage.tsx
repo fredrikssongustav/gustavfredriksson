@@ -5,7 +5,7 @@ export const initGA = (trackingID: string) => {
   ReactGA.initialize(trackingID);
 };
 
-initGA("G-55XNK8800V");
+initGA("G-6PE98CRQHF");
 
 export const useTrackPage = () => {
   useEffect(() => {
