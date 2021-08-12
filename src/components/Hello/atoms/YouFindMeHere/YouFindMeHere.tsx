@@ -48,7 +48,8 @@ const MailSVG = () => (
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 30px 15%; ;
+  margin: 30px 15%;
+  padding-bottom: 100px;
 `;
 
 export const YouFindMeHere: React.FC = () => {

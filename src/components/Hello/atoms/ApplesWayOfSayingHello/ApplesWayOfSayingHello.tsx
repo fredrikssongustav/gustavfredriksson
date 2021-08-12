@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 const TextBlock = styled.h1`
-  background-color: #fcc0b8;
-
-  /* Fix width to fit all hello phrases */
-  width: 110px;
+  border-bottom: 0.4rem solid black;
+  font-size: 4rem;
+  text-align: left;
 
   /* We want pulsating hello's */
   animation: pulse 5s infinite;

@@ -2,12 +2,11 @@ import React from "react";
 
 export const ThisIsMe: React.FC = () => {
   return (
-    <>
+    <div style={{ textAlign: "justify" }}>
       <p>
-        My name is Gustav Fredriksson and I am an engineer. Currently, I am on a
-        mission to build the infrastructure of financial services of our
-        future–working as a Senior Software Engineer at{" "}
-        <a href="https://tink.com/">Tink</a>.
+        My name is Gustav and I enjoy software. Currently, I am on a mission to
+        build the infrastructure of financial services of our future–working as
+        a Senior Software Engineer at <a href="https://tink.com/">Tink</a>.
       </p>
       <p>
         If you land on this page that makes me glad–despite the fact that I am
@@ -18,6 +17,6 @@ export const ThisIsMe: React.FC = () => {
         </a>
         . Feeling friendly? Get in touch:
       </p>
-    </>
+    </div>
   );
 };

@@ -10,7 +10,13 @@ export const Hello: React.FC = () => {
 
   return (
     <Page>
-      <div>
+      <div
+        style={{
+          maxWidth: "600px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <ApplesWayOfSayingHello />
         <ThisIsMe />
         <YouFindMeHere />

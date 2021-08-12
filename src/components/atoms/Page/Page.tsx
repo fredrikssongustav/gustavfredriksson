@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 const CenteredContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 32px;
   background-color: #f5eeee;
@@ -17,19 +16,38 @@ const CenteredContainer = styled.div`
   @media only screen and (max-width: 600px) {
     align-items: unset;
   }
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
-const RowContainer = styled.div`
-  flex-direction: row;
-  max-width: 600px;
-  text-align: justify;
-`;
+export const Header = () => (
+  <div style={{ position: "fixed", right: "32px" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "flex-end",
+      }}
+    >
+      <p
+        style={{
+          backgroundColor: "#fcc0b8",
+          fontWeight: 700,
+          padding: "2px 4px",
+          fontSize: "1.25rem",
+          lineHeight: "1",
+          margin: "0",
+        }}
+      >
+        GUSTAV FREDRIKSSON
+      </p>
+    </div>
+  </div>
+);
 
 export const Page: React.FC = ({ children }) => {
   return (
     <CenteredContainer>
-      <RowContainer>{children}</RowContainer>
+      <Header />
+      <>{children}</>
     </CenteredContainer>
   );
 };
