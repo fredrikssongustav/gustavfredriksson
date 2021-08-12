@@ -2,7 +2,7 @@ import React from "react";
 
 export const ThisIsMe: React.FC = () => {
   return (
-    <>
+    <div style={{ textAlign: "justify" }}>
       <p>
         My name is Gustav Fredriksson and I am an engineer. Currently, I am on a
         mission to build the infrastructure of financial services of our
@@ -18,6 +18,6 @@ export const ThisIsMe: React.FC = () => {
         </a>
         . Feeling friendly? Get in touch:
       </p>
-    </>
+    </div>
   );
 };
