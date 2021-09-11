@@ -1,36 +1,31 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useEffect, useState } from "react";
 
+const pulse = (color: string) => keyframes`
+    0% {
+      color: ${color}ff;
+    }
+
+    45% {
+      color: ${color}00;
+    }
+
+    55% {
+      color: ${color}00;
+    }
+
+    100% {
+      color: ${color}ff;
+    }`;
+
 const TextBlock = styled.h1`
-  border-bottom: 0.4rem solid black;
+  border-bottom: 0.4rem solid ${(props) => props.theme.fg};
   font-size: 4rem;
   text-align: left;
 
   /* We want pulsating hello's */
-  animation: pulse 5s infinite;
-
-  @keyframes pulse {
-    /* 0s */
-    0% {
-      color: #000000ff;
-    }
-
-    /* 2.25s */
-    45% {
-      color: #00000000;
-    }
-
-    /* 2.75s */
-    55% {
-      color: #00000000;
-    }
-
-    /* 5s */
-    100% {
-      color: #000000ff;
-    }
-  }
+  animation: ${(props) => pulse(props.theme.fg)} 5s infinite;
 
   /* Delay for the first render to sync setTimeout */
   animation-delay: 2.75s;
