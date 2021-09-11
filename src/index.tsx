@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import ReactGA from "react-ga";
-import App from "./App";
+import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactGA.initialize("UA-164657854-1");

@@ -3,12 +3,16 @@ import styled from "styled-components";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Hello } from "./components/Hello/Hello";
 import { ElevatorPitch } from "./components/ElevatorPitch/ElevatorPitch";
+import { ConfiguredThemeProvider } from "./components/context/ConfiguredThemeProvider/ConfiguredThemeProvider";
 
 const FullPageContainer = styled.article`
   position: fixed;
   display: flex;
   width: 100vw;
   height: 100vh;
+  background-color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.fg};
+  transition: background-color 0.5s;
 
   /* Unvisited link  */
   p > a,
@@ -19,9 +23,9 @@ const FullPageContainer = styled.article`
   }
 `;
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
+    <ConfiguredThemeProvider>
       <FullPageContainer>
         <BrowserRouter>
           <Switch>
@@ -32,8 +36,6 @@ function App() {
           </Switch>
         </BrowserRouter>
       </FullPageContainer>
-    </div>
+    </ConfiguredThemeProvider>
   );
-}
-
-export default App;
+};
