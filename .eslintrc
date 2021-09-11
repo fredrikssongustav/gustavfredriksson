@@ -1,4 +1,4 @@
-{
+git{
   "extends": [
     "airbnb-typescript",
     "airbnb/hooks",
@@ -51,6 +51,7 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/prefer-default-export": 0,
-    "react/prop-types": [2, { "ignore": ["children"] }]
+    "react/prop-types": [2, { "ignore": ["children"] }],
+    "react/jsx-props-no-spreading": 0
   }
 }
