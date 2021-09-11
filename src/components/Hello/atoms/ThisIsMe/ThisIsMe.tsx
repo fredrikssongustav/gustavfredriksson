@@ -4,7 +4,7 @@ export const ThisIsMe: React.FC = () => {
   return (
     <div style={{ textAlign: "justify" }}>
       <p>
-        My name is Gustav and I enjoy software. Currently, I am on a mission to
+        My name is Gustav and I bend software. Currently, I am on a mission to
         build the infrastructure of financial services of our future–working as
         a Senior Software Engineer at <a href="https://tink.com/">Tink</a>.
       </p>
