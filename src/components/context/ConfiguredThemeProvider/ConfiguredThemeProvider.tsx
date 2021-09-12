@@ -10,13 +10,21 @@ const ConfiguredThemeContext = React.createContext({
   toggleDarkMode: () => {},
 });
 
+const mutualThemeProps = {
+  sizes: {
+    monumental: "4rem",
+  },
+};
+
 export const lightTheme = {
+  ...mutualThemeProps,
   fg: "#202020",
   bg: "#fcc0b830",
   primary: "#fcc0b8",
 };
 
 export const darkTheme = {
+  ...mutualThemeProps,
   fg: "#f1f1f1",
   bg: `${lightTheme.fg}`,
   primary: "#fcc0b8",
@@ -28,7 +36,7 @@ export const useConfiguredThemeContext = () =>
 export const ConfiguredThemeProvider = ({
   children,
 }: ConfiguredThemeProviderProps) => {
-  const [toggle, flick] = useState(true);
+  const [toggle, flick] = useState(false);
 
   return (
     <ConfiguredThemeContext.Provider

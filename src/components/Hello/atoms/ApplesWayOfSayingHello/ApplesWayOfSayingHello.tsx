@@ -21,7 +21,7 @@ const pulse = (color: string) => keyframes`
 
 const TextBlock = styled.h1`
   border-bottom: 0.4rem solid ${(props) => props.theme.fg};
-  font-size: 4rem;
+  font-size: ${(props) => props.theme.sizes.monumental};
   text-align: left;
 
   /* We want pulsating hello's */
