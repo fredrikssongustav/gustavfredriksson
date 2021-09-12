@@ -19,7 +19,7 @@ const mutualThemeProps = {
 export const lightTheme = {
   ...mutualThemeProps,
   fg: "#202020",
-  bg: "#fcc0b830",
+  bg: "#FFF9F9",
   primary: "#fcc0b8",
 };
 
