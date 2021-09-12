@@ -15,7 +15,7 @@ const CenteredContainer = styled.div`
   @media only screen and (max-width: 600px) {
     align-items: unset;
   }
-  min-height: 100vh;
+  min-height: 60vh;
 `;
 
 type PageProps = {
