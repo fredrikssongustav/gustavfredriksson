@@ -5,6 +5,7 @@ const SwitchInput = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  position: absolute;
 `;
 
 const SwitchLabel = styled.label`
@@ -12,23 +13,28 @@ const SwitchLabel = styled.label`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 50px;
-  height: 26px;
+  width: 55px;
+  height: 24px;
   border-radius: 100px;
   border: 2px solid ${(props) => props.theme.fg};
   position: relative;
-  transition: border 0.5s;
+  transition: border, background-color 0.5s;
+  background-color: ${(props) => props.theme.bg};
 `;
 
 const SwitchButton = styled.span`
   position: absolute;
   border-radius: 45px;
-  padding: 0 4px;
-  line-height: 26px;
-
+  line-height: 18px;
+  font-size: 18px;
   transition: 2s;
   ${SwitchInput}:checked + ${SwitchLabel} & {
     right: 0;
+    left: unset;
+  }
+
+  ${SwitchInput} + ${SwitchLabel} & {
+    left: 1px;
   }
 `;
 
@@ -42,7 +48,6 @@ export const Switch = ({ id, toggled, onChange }: SwitchProps) => {
   return (
     <>
       <SwitchInput
-        className="switch-checkbox"
         id={id}
         type="checkbox"
         checked={toggled}
