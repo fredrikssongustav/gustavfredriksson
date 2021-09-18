@@ -24,7 +24,9 @@ export const Header = () => {
   return (
     <>
       <CleanA href="/">
-        <div style={{ position: "fixed", right: "30px", top: "32px" }}>
+        <div
+          style={{ position: "fixed", right: "30px", top: "32px", zIndex: 10 }}
+        >
           <div
             style={{
               display: "flex",
@@ -35,7 +37,7 @@ export const Header = () => {
           </div>
         </div>
       </CleanA>
-      <div style={{ position: "fixed", left: "32px", top: "32px" }}>
+      <div style={{ position: "fixed", left: "32px", top: "32px", zIndex: 10 }}>
         <div
           style={{
             display: "flex",
