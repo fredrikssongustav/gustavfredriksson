@@ -11,10 +11,6 @@ const CenteredContainer = styled.div`
   font-size: 20px;
   line-height: 1.4;
 
-  /* "Handle" iPhone navbar in bottom */
-  @media only screen and (max-width: 600px) {
-    align-items: unset;
-  }
   min-height: 60vh;
 `;
 

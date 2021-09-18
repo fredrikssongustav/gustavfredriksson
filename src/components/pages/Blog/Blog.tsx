@@ -1,13 +1,14 @@
 import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { CleanA } from "../../atoms/CleanA/CleanA";
+import { CodeBlock } from "../../atoms/CodeBlock/CodeBlock";
 import { Page } from "../../atoms/Page/Page";
 import { Title } from "../../atoms/Title/Title";
 import img from "./img/my-beloved-software-i-take-for-granted.gif";
 
 export type BlogDataProps = {
   title: string;
-  date: string;
+  date: Date;
   id: string;
   preview: string;
   body: JSX.Element[];
@@ -17,7 +18,7 @@ export type BlogDataProps = {
 export const blogData: BlogDataProps[] = [
   {
     title: "My beloved software I take for granted",
-    date: "2021-09-12",
+    date: new Date("2021-09-12"),
     id: "my-beloved-software-i-take-for-granted",
     preview:
       "Every once in a while we should pause and appreciate what we have",
@@ -56,6 +57,82 @@ export const blogData: BlogDataProps[] = [
     ],
     read: 5,
   },
+  {
+    title: "Make Postman more useful",
+    date: new Date("2021-09-18"),
+    id: "make-postman-more-useful",
+    preview: "Okay, Postman is not one of the tools I enjoy working with",
+    body: [
+      <p>
+        Okay, Postman is not one of the tools I enjoy working with. But even so,
+        I fallback to it when I get tired of pasting bearer tokens into{" "}
+        <code>curl</code>. A recent struggle I had, involved grabbing request
+        body, constructing a URL from it and then have it open in the browser.
+        Feels like a pretty basic task, but it seem Postman does not support
+        this(
+        <CleanA href="https://community.postman.com/t/using-window-open-in-pre-request-script/9237">
+          some postman thread{" "}
+        </CleanA>
+        ,{" "}
+        <CleanA href="https://stackoverflow.com/questions/67105878/can-postman-automatically-open-a-new-browser-window-after-response">
+          some stackoverflow post
+        </CleanA>
+        ,
+        <CleanA href="https://github.com/postmanlabs/postman-app-support/issues/2030">
+          some Github issue telling the feature exist but is broken
+        </CleanA>
+        ) . I could write a script, but in the future I plan on sharing this
+        collection; and arbitrary scripts are tedious to maintain.
+      </p>,
+      <p>
+        So in order to fix this I need three things:
+        <ol>
+          <li>Something that can take an URL and open it in a browser</li>
+          <li>Something in Postman that communicates with the above</li>
+          <li>
+            Something that let&apos;s me execute a request in Postman and then
+            trigger the above
+          </li>
+        </ol>
+        3. is fairly easy and can be setup using the{" "}
+        <CleanA href="https://learning.postman.com/docs/writing-scripts/test-scripts/">
+          Postman test feature
+        </CleanA>
+        , allowing for writing post-request scripts in JS. 1. is where I took
+        the hacky highway, creating a simple node server:
+        <CodeBlock>
+          {`
+const express = require("express");
+const app = express();
+const open = require("open");
+const bodyParser = require("body-parser");
+
+const port = 1;
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/open-url", (req, res) => {
+  open(req.body.q);
+  res.send("Opened url!");
+});
+
+app.listen(port, () => {
+  console.log(\`Listening at http://localhost:\${port}\`);
+});
+          `}
+        </CodeBlock>
+        2. could then we achieved by making a mock API call as a part of a
+        Postman collection–exported as curl it looked like:
+        <CodeBlock>
+          {`
+curl --location --request GET 'http://localhost:1/open-url' \\
+--header 'Content-Type: application/x-www-form-urlencoded' \\
+--data-urlencode 'q=https://gustavfredriksson.com'
+          `}
+        </CodeBlock>
+      </p>,
+    ],
+    read: 7,
+  },
 ];
 
 export const Blog = () => {
@@ -79,10 +156,11 @@ export const Blog = () => {
           <div
             style={{
               maxWidth: "800px",
+              width: "100%",
             }}
           >
             <Title>{post.title}</Title>
-            <p>{post.date}</p>
+            <p>{post.date.toDateString()}</p>
             {post.body}
           </div>
         </div>
