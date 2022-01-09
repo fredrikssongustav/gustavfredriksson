@@ -46,7 +46,6 @@ const BlogItemBlock = styled.div`
 
 const BlogItem = ({
   title,
-  date,
   id,
   preview,
   read,
@@ -57,7 +56,6 @@ const BlogItem = ({
         <b>{title}</b>
         <i>{`${preview.slice(0, 25).trimEnd()}...`}</i>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <i>{date.toDateString()}</i>
           <div>
             <span>{`⏱ ${read}'`}</span>
           </div>
@@ -74,7 +72,7 @@ export const BlogPreview: React.FC = () => {
     <Page>
       <ResponsiveContentSwapper>
         <HeaderContainer>
-          <Title>Blog.</Title>
+          <Title>Thoughts</Title>
         </HeaderContainer>
         <div
           style={{

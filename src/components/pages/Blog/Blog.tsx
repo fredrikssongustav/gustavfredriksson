@@ -160,7 +160,6 @@ export const Blog = () => {
             }}
           >
             <Title>{post.title}</Title>
-            <p>{post.date.toDateString()}</p>
             {post.body}
           </div>
         </div>
