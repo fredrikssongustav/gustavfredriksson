@@ -71,17 +71,17 @@ export const blogData: BlogDataProps[] = [
         Feels like a pretty basic task, but it seem Postman does not support
         this(
         <CleanA href="https://community.postman.com/t/using-window-open-in-pre-request-script/9237">
-          some postman thread{" "}
+          some postman thread
         </CleanA>
         ,{" "}
         <CleanA href="https://stackoverflow.com/questions/67105878/can-postman-automatically-open-a-new-browser-window-after-response">
           some stackoverflow post
         </CleanA>
-        ,
+        ,{" "}
         <CleanA href="https://github.com/postmanlabs/postman-app-support/issues/2030">
           some Github issue telling the feature exist but is broken
         </CleanA>
-        ) . I could write a script, but in the future I plan on sharing this
+        ). I could write a script, but in the future I plan on sharing this
         collection; and arbitrary scripts are tedious to maintain.
       </p>,
       <p>
