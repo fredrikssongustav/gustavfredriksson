@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledPre = styled.pre`
   position: relative;
-  z-index: -1;
 `;
 
 const StyledCode = styled.code`
@@ -51,6 +50,7 @@ export const CodeBlock: React.FC = ({ children }) => {
         <p>(tap this to see the code though)</p>
       </button>
       <StyledPre>
+        asd
         <StyledCode>{children}</StyledCode>
       </StyledPre>
     </Overlay>

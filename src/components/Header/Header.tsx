@@ -22,22 +22,34 @@ export const Header = () => {
   const { toggle, toggleDarkMode } = useConfiguredThemeContext();
 
   return (
-    <>
-      <CleanA href="/">
-        <div
-          style={{ position: "fixed", right: "30px", top: "32px", zIndex: 10 }}
-        >
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        background: "inherit",
+        zIndex: 10,
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "16px",
+        }}
+      >
+        <CleanA href="/">
           <div
             style={{
               display: "flex",
+              width: "100%",
               justifyContent: "flex-end",
             }}
           >
             <P>GUSTAV FREDRIKSSON</P>
           </div>
-        </div>
-      </CleanA>
-      <div style={{ position: "fixed", left: "32px", top: "32px", zIndex: 10 }}>
+        </CleanA>
         <div
           style={{
             display: "flex",
@@ -47,6 +59,6 @@ export const Header = () => {
           <Switch id="darkmode" onChange={toggleDarkMode} toggled={toggle} />
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -4,20 +4,17 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ElevatorPitch } from "./components/ElevatorPitch/ElevatorPitch";
 import { ConfiguredThemeProvider } from "./components/context/ConfiguredThemeProvider/ConfiguredThemeProvider";
 import { Home } from "./components/pages/Home/Home";
-import { Header } from "./components/Header/Header";
 import { Blog, blogData } from "./components/pages/Blog/Blog";
+import { Header } from "./components/Header/Header";
 
-const FullPageContainer = styled.article`
-  padding: 128px 32px;
-  position: fixed;
+const FullPageContainer = styled.div`
+  position: relative;
   flex-direction: column;
-  width: calc(100vw - 62px);
-  height: calc(100vh - 256px);
   background-color: ${(props) => props.theme.bg};
   color: ${(props) => props.theme.fg};
   transition: background-color 0.5s;
   overflow-y: auto;
-  margin-bottom: 100px;
+  padding: 100px 5%;
 `;
 
 export const App = () => {

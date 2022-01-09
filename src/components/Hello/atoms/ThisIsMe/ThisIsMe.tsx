@@ -7,7 +7,7 @@ export const ThisIsMe: React.FC = () => {
       <p>
         My name is Gustav and I bend software. Currently, I am on a mission to
         build the infrastructure for the financial services of our
-        future–working as a Senior Software Engineer at{" "}
+        future–working as a Engineering Manager at{" "}
         <CleanA href="https://tink.com/">Tink</CleanA>.
       </p>
       <p>
