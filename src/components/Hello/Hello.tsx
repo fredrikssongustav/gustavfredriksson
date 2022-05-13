@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../atoms/Page/Page";
-import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
+import { CoolWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
 import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
 import { YouFindMeHere } from "./atoms/YouFindMeHere/YouFindMeHere";
 
@@ -14,7 +14,7 @@ export const Hello: React.FC = () => {
           flexDirection: "column",
         }}
       >
-        <ApplesWayOfSayingHello />
+        <CoolWayOfSayingHello />
         <ThisIsMe />
         <YouFindMeHere />
       </div>
