@@ -1,13 +1,10 @@
 import React from "react";
 import { Page } from "../atoms/Page/Page";
-import { useTrackPage } from "../atoms/useTrackPage/useTrackPage";
-import { ApplesWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
+import { CoolWayOfSayingHello } from "./atoms/ApplesWayOfSayingHello/ApplesWayOfSayingHello";
 import { ThisIsMe } from "./atoms/ThisIsMe/ThisIsMe";
 import { YouFindMeHere } from "./atoms/YouFindMeHere/YouFindMeHere";
 
 export const Hello: React.FC = () => {
-  useTrackPage();
-
   return (
     <Page>
       <div
@@ -17,7 +14,7 @@ export const Hello: React.FC = () => {
           flexDirection: "column",
         }}
       >
-        <ApplesWayOfSayingHello />
+        <CoolWayOfSayingHello />
         <ThisIsMe />
         <YouFindMeHere />
       </div>

@@ -19,8 +19,7 @@ const pulse = (color: string) => keyframes`
       color: ${color}ff;
     }`;
 
-const TextBlock = styled.h1`
-  border-bottom: 0.4rem solid ${(props) => props.theme.fg};
+const TextBlock = styled.h2`
   font-size: ${(props) => props.theme.sizes.monumental};
   text-align: left;
 
@@ -32,23 +31,26 @@ const TextBlock = styled.h1`
 `;
 
 const helloInVariousLanguages = [
-  { word: "Hello", id: 0 },
-  { word: "Hej", id: 1 },
-  { word: "שלום", id: 2 },
-  { word: "Bonjour", id: 3 },
-  { word: "日", id: 4 },
-  { word: "Hallo", id: 5 },
+  "Hello",
+  "Hej",
+  "שלום",
+  "Bonjour",
+  "日",
+  "Hallo",
 ];
 
-export const ApplesWayOfSayingHello: React.FC = () => {
-  const [hello, setHello] = useState(helloInVariousLanguages[0]);
+export const CoolWayOfSayingHello: React.FC = () => {
+  const [hello, setHello] = useState<number>(0);
 
   useEffect(() => {
     setTimeout(() => {
-      const nextIndex = hello.id === 4 ? 0 : hello.id + 1;
-      setHello(helloInVariousLanguages[nextIndex]);
+      setHello(hello + 1);
     }, 5000);
   }, [hello, setHello]);
 
-  return <TextBlock> {hello.word}</TextBlock>;
+  return (
+    <TextBlock>
+      {helloInVariousLanguages[hello % helloInVariousLanguages.length]}
+    </TextBlock>
+  );
 };
