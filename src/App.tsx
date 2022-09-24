@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ElevatorPitch } from "./components/ElevatorPitch/ElevatorPitch";
 import { ConfiguredThemeProvider } from "./components/context/ConfiguredThemeProvider/ConfiguredThemeProvider";
 import { Home } from "./components/pages/Home/Home";
-import { Snake } from "./components/Snake/Snake";
 
 const FullPageContainer = styled.div`
   position: relative;
@@ -19,7 +18,6 @@ const FullPageContainer = styled.div`
 export const App = () => {
   return (
     <ConfiguredThemeProvider>
-      <Snake />
       <FullPageContainer>
         <BrowserRouter>
           <Switch>
