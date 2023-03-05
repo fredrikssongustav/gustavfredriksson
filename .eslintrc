@@ -2,7 +2,6 @@
   "extends": [
     "airbnb-typescript",
     "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
     "prettier",
     "prettier/react",
@@ -40,15 +39,8 @@
         "endOfLine": "auto"
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.test.ts",
-          "**/*.test.tsx"
-        ]
-      }
-    ],
+    "import/extensions":0,
+    "import/no-extraneous-dependencies": 0,
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/prefer-default-export": 0,
     "react/prop-types": [2, { "ignore": ["children"] }],
