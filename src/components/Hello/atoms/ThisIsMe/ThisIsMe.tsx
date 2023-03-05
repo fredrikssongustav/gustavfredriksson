@@ -5,10 +5,10 @@ export const ThisIsMe: React.FC = () => {
   return (
     <div style={{ textAlign: "justify" }}>
       <p>
-        My name is Gustav and I bend software. Currently, I am on a mission to
-        build the infrastructure for the financial services of our
-        future–working as an Engineering Manager at{" "}
-        <CleanA href="https://tink.com/">Tink</CleanA>.
+        My name is Gustav and I work with software. Currently, I am on the
+        mission to build the live streaming technology of our future–working as
+        an SDE at{" "}
+        <CleanA href="https://www.primevideo.com/">Prime Video/Amazon</CleanA>.
       </p>
       <p>
         I am not looking for a new opportunity but will regardless leverage this
