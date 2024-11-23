@@ -1,0 +1,90 @@
+:root {
+  --var-fg: #f1f1f1;
+}
+
+body {
+  background: #202020;
+  color: var(--var-fg);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+}
+
+svg {
+  fill: var(--var-fg);
+}
+
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.rg3 {
+  row-gap: 2rem;
+}
+
+.fr {
+  display: flex;
+  flex-direction: row;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.fsb {
+  justify-content: space-between;
+}
+
+.px3 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.py10 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+@media (max-width: 768px) {
+  .px3 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .py10 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.mw40 {
+  max-width: 40rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 0;
+  text-align: justify;
+}
+
+p > a {
+  color: #4467ab;
+  text-decoration: none;
+}
