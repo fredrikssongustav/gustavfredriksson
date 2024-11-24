@@ -7,7 +7,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prettier": "prettier --write .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "deploy": "firebase deploy"
   },
   "browserslist": {

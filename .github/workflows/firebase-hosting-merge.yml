@@ -22,11 +22,15 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: pnpm install
-      
+
       # Build the project
       - name: Build the project
         run: pnpm run build
-      
+
+      # Format the project
+      - name: Format the project
+        run: pnpm run format
+
       # Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
