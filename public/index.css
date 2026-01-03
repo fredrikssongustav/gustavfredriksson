@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #202020;
+  background: #151516;
   color: var(--var-fg);
   font-family:
     -apple-system,
@@ -35,6 +35,8 @@ svg {
 .fr {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .w100 {
@@ -55,10 +57,10 @@ svg {
   padding-bottom: 10rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .px3 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .py10 {
@@ -76,7 +78,7 @@ h1 {
   margin: 0;
 }
 
-p {
+.text{
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 150%;
@@ -84,7 +86,29 @@ p {
   text-align: justify;
 }
 
-p > a {
-  color: #4467ab;
-  text-decoration: none;
+a {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  color: rgb(106, 147, 184);
+
+  &:hover {
+    color: rgb(106, 124, 141);
+  }
+}
+
+.cg2 {
+  column-gap: 1.5rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+@media (max-width: 600px) {
+  .links {
+    flex-direction: column;
+  }
 }
