@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "gustavfredriksson-10e2e"
-  }
+  },
+  "targets": {
+    "gustavfredriksson-10e2e": {
+      "hosting": {
+        "main": [
+          "gustavfredriksson-10e2e"
+        ],
+        "fest": [
+          "gustavfredriksson-fest"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

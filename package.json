@@ -5,6 +5,7 @@
   "packageManager": "pnpm@9.14.2",
   "scripts": {
     "start": "vite",
+    "start:fest": "vite --config vite.fest.config.js",
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --check .",

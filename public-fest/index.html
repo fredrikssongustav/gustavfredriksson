@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta property="og:image" content="https://fest.gustavfredriksson.com/unfurl.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧌</text></svg>" />
+    <title>30 30 30 30 30</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(ellipse at center,
+                    #1a0a0a 0%,
+                    #0b0505 100%);
+            color: white;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow: hidden;
+            padding: 16px;
+        }
+
+        /* Realistic Roulette Wheel */
+        .roulette-container {
+            position: fixed;
+            width: min(700px, 140vw);
+            height: min(700px, 140vw);
+            z-index: -1;
+            opacity: 0.25;
+            filter: blur(1px);
+        }
+
+        .roulette-wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            animation: wheelSpin 25s cubic-bezier(0.2, 0.8, 0.3, 1) infinite;
+            transform-style: preserve-3d;
+            box-shadow:
+                inset 0 0 60px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .roulette-wheel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(#c41e3a 0deg 9.73deg,
+                    #1a1a1a 9.73deg 19.46deg,
+                    #c41e3a 19.46deg 29.19deg,
+                    #1a1a1a 29.19deg 38.92deg,
+                    #c41e3a 38.92deg 48.65deg,
+                    #1a1a1a 48.65deg 58.38deg,
+                    #c41e3a 58.38deg 68.11deg,
+                    #1a1a1a 68.11deg 77.84deg,
+                    #c41e3a 77.84deg 87.57deg,
+                    #1a1a1a 87.57deg 97.3deg,
+                    #c41e3a 97.3deg 107.03deg,
+                    #1a1a1a 107.03deg 116.76deg,
+                    #c41e3a 116.76deg 126.49deg,
+                    #1a1a1a 126.49deg 136.22deg,
+                    #c41e3a 136.22deg 145.95deg,
+                    #1a1a1a 145.95deg 155.68deg,
+                    #c41e3a 155.68deg 165.41deg,
+                    #1a1a1a 165.41deg 175.14deg,
+                    #00693e 175.14deg 184.87deg,
+                    #c41e3a 184.87deg 194.6deg,
+                    #1a1a1a 194.6deg 204.33deg,
+                    #c41e3a 204.33deg 214.06deg,
+                    #1a1a1a 214.06deg 223.79deg,
+                    #c41e3a 223.79deg 233.52deg,
+                    #1a1a1a 233.52deg 243.25deg,
+                    #c41e3a 243.25deg 252.98deg,
+                    #1a1a1a 252.98deg 262.71deg,
+                    #c41e3a 262.71deg 272.44deg,
+                    #1a1a1a 272.44deg 282.17deg,
+                    #c41e3a 282.17deg 291.9deg,
+                    #1a1a1a 291.9deg 301.63deg,
+                    #c41e3a 301.63deg 311.36deg,
+                    #1a1a1a 311.36deg 321.09deg,
+                    #c41e3a 321.09deg 330.82deg,
+                    #1a1a1a 330.82deg 340.55deg,
+                    #c41e3a 340.55deg 350.28deg,
+                    #1a1a1a 350.28deg 360deg);
+            border: 12px solid #8b7355;
+            box-shadow:
+                inset 0 0 0 8px #d4af37,
+                inset 0 0 0 16px #8b7355,
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .roulette-wheel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25%;
+            height: 25%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle,
+                    #d4af37 0%,
+                    #8b7355 60%,
+                    #5c4d3d 100%);
+            border-radius: 50%;
+            border: 4px solid #d4af37;
+            box-shadow:
+                0 0 20px rgba(212, 175, 55, 0.6),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Wheel dividers */
+        .wheel-dividers {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+        }
+
+        .wheel-dividers::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            background: repeating-conic-gradient(from 0deg,
+                    transparent 0deg 9.5deg,
+                    rgba(212, 175, 55, 0.7) 9.5deg 10deg);
+        }
+
+        @keyframes wheelSpin {
+            0% {
+                transform: rotate(0deg) rotateX(15deg);
+            }
+
+            100% {
+                transform: rotate(360deg) rotateX(15deg);
+            }
+        }
+
+        /* Ball orbit */
+        .ball-orbit {
+            position: absolute;
+            inset: 15%;
+            border-radius: 50%;
+            animation: orbitSpin 4s linear infinite reverse;
+        }
+
+        .ball {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle at 30% 30%, #fff, #ccc, #888);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.5),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes orbitSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Casino Card */
+        .casino-card {
+            background: linear-gradient(165deg,
+                    #2a2a2a 0%,
+                    #151515 50%,
+                    #0a0a0a 100%);
+            padding: clamp(24px, 6vw, 40px);
+            border-radius: 24px;
+            border: 4px solid #d4af37;
+            box-shadow:
+                0 0 60px rgba(212, 175, 55, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .casino-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.03),
+                    transparent);
+            animation: shimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                transform: translateX(-50%);
+            }
+
+            50% {
+                transform: translateX(50%);
+            }
+        }
+
+        .neon-text {
+            color: #fff;
+            text-shadow:
+                0 0 10px #ff4d4d,
+                0 0 20px #ff4d4d,
+                0 0 40px #ff3333,
+                0 0 80px #cc0000;
+            font-size: clamp(1.8rem, 8vw, 2.8rem);
+            margin: 0;
+            letter-spacing: 4px;
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow:
+                    0 0 10px #ff4d4d,
+                    0 0 20px #ff4d4d,
+                    0 0 40px #ff3333;
+                filter: brightness(1);
+            }
+
+            to {
+                text-shadow:
+                    0 0 15px #ff6666,
+                    0 0 30px #ff4d4d,
+                    0 0 60px #ff3333,
+                    0 0 100px #cc0000;
+                filter: brightness(1.1);
+            }
+        }
+
+        .subtitle {
+            color: #d4af37;
+            letter-spacing: 3px;
+            font-size: clamp(0.65rem, 2.5vw, 0.85rem);
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Slot Machine */
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            gap: clamp(8px, 2vw, 12px);
+            background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+            padding: clamp(16px, 4vw, 24px);
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 3px solid #333;
+            box-shadow:
+                inset 0 4px 20px rgba(0, 0, 0, 0.8),
+                0 4px 0 #222;
+            position: relative;
+        }
+
+        .slot-container::before,
+        .slot-container::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d4af37;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .slot-container::before {
+            left: 6px;
+        }
+
+        .slot-container::after {
+            right: 6px;
+            content: '◀';
+        }
+
+        .reel {
+            width: clamp(60px, 18vw, 85px);
+            height: clamp(75px, 22vw, 105px);
+            background: linear-gradient(180deg, #e8e8e8 0%, #fff 50%, #e8e8e8 100%);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(2rem, 10vw, 3.2rem);
+            overflow: hidden;
+            color: #000;
+            box-shadow:
+                inset 0 4px 8px rgba(0, 0, 0, 0.2),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid #999;
+            position: relative;
+        }
+
+        .reel::before,
+        .reel::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .reel::before {
+            top: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), transparent);
+        }
+
+        .reel::after {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), transparent);
+        }
+
+        .reel.spinning {
+            animation: reelBlur 0.1s linear infinite;
+        }
+
+        @keyframes reelBlur {
+
+            0%,
+            100% {
+                filter: blur(0);
+            }
+
+            50% {
+                filter: blur(1px);
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            display: none;
+            background: linear-gradient(135deg,
+                    rgba(212, 175, 55, 0.1),
+                    rgba(0, 0, 0, 0.3));
+            padding: clamp(16px, 5vw, 24px);
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            margin-bottom: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            text-align: left;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .info-box.visible {
+            display: block;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            display: flex;
+            gap: 10px;
+            font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+        }
+
+        .info-box strong {
+            color: #d4af37;
+            min-width: 90px;
+        }
+
+        .info-box a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .info-box a:hover {
+            color: #d4af37;
+        }
+
+        /* Spin Button */
+        .btn-spin {
+            background: linear-gradient(180deg,
+                    #f0c850 0%,
+                    #d4af37 50%,
+                    #b8962e 100%);
+            color: #1a1a1a;
+            border: none;
+            padding: clamp(12px, 4vw, 18px) clamp(24px, 8vw, 40px);
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow:
+                0 6px 0 #8b7355,
+                0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-spin::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: 0.5s;
+        }
+
+        .btn-spin:hover::before {
+            left: 100%;
+        }
+
+        .btn-spin:hover {
+            background: linear-gradient(180deg,
+                    #ffe066 0%,
+                    #e0c050 50%,
+                    #c9a83a 100%);
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 0 #8b7355,
+                0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-spin:active {
+            box-shadow: 0 2px 0 #8b7355;
+            transform: translateY(4px);
+        }
+
+        .btn-spin:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .rsvp-section {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .rsvp-section.visible {
+            display: flex;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-rsvp {
+            background: linear-gradient(180deg,
+                    #ff6b6b 0%,
+                    #c41e3a 50%,
+                    #a01830 100%);
+            color: white;
+            border: none;
+            padding: clamp(10px, 3vw, 14px) clamp(20px, 6vw, 32px);
+            font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow:
+                0 4px 0 #7a1020,
+                0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.15s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-rsvp:hover {
+            background: linear-gradient(180deg,
+                    #ff8585 0%,
+                    #d42848 50%,
+                    #b02040 100%);
+            transform: translateY(-2px);
+            box-shadow:
+                0 6px 0 #7a1020,
+                0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-rsvp:active {
+            box-shadow: 0 2px 0 #7a1020;
+            transform: translateY(2px);
+        }
+
+        /* Win animation */
+        @keyframes winGlow {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 60px rgba(212, 175, 55, 0.2),
+                    0 20px 60px rgba(0, 0, 0, 0.8);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 100px rgba(212, 175, 55, 0.6),
+                    0 20px 60px rgba(0, 0, 0, 0.8),
+                    0 0 150px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        .casino-card.winner {
+            animation: winGlow 0.5s ease-in-out 6;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 10px;
+            background: #d4af37;
+            animation: confettiFall 3s ease-out forwards;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="roulette-container">
+        <div class="roulette-wheel">
+            <div class="wheel-dividers"></div>
+            <div class="ball-orbit">
+                <div class="ball"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="casino-card" id="card">
+        <h1 class="neon-text">JACKPOT!</h1>
+        <p class="subtitle">⭐ Jag Fyller 30 ⭐</p>
+
+        <div class="slot-container">
+            <div class="reel" id="reel1">❓</div>
+            <div class="reel" id="reel2">❓</div>
+            <div class="reel" id="reel3">❓</div>
+        </div>
+
+        <button class="btn-spin" id="spinBtn" onclick="stopSlots()">
+            🛑 STOP
+        </button>
+
+        <div class="info-box" id="infoBox">
+            <p><strong>EVENT:</strong> <span>Min Ungdoms Begravning</span></p>
+            <p><strong>DATUM:</strong> <span>28 Feb, 2026 kl. 20:00</span></p>
+            <p>
+                <strong>PLATS:</strong>
+                <span><a href="https://maps.app.goo.gl/anEKWiSyZ6CJyPKT7" target="_blank">Tiny Todd</a></span>
+            </p>
+        </div>
+
+        <div class="rsvp-section" id="rsvpSection">
+            <a href="rsvp.html" class="btn-rsvp">📩 OSA NU</a>
+        </div>
+    </div>
+
+    <script>
+        const symbols = [
+            '💀',
+            '🍺',
+            '👵',
+            '💊',
+            '🍕',
+            '🎰',
+            '💤',
+            '🎂',
+            '🥳',
+            '🔥',
+        ];
+        const winSymbol = '🎉';
+        let spinIntervals = [];
+
+        const reels = [
+            document.getElementById('reel1'),
+            document.getElementById('reel2'),
+            document.getElementById('reel3'),
+        ];
+
+        // Start spinning immediately on page load
+        function startSpinning() {
+            reels.forEach((reel, index) => {
+                reel.classList.add('spinning');
+                const interval = setInterval(
+                    () => {
+                        reel.innerText =
+                            symbols[Math.floor(Math.random() * symbols.length)];
+                    },
+                    120 + index * 20
+                );
+                spinIntervals.push(interval);
+            });
+        }
+
+        // Stop the slots when button is clicked
+        function stopSlots() {
+            const btn = document.getElementById('spinBtn');
+            const card = document.getElementById('card');
+
+            // Disable button forever
+            btn.disabled = true;
+
+            // Staggered stop times for realistic effect
+            const stopTimes = [500, 1200, 2000];
+
+            reels.forEach((reel, index) => {
+                setTimeout(() => {
+                    clearInterval(spinIntervals[index]);
+                    reel.classList.remove('spinning');
+                    reel.innerText = winSymbol;
+
+                    // After last reel stops, show everything
+                    if (index === 2) {
+                        setTimeout(() => {
+                            card.classList.add('winner');
+                            createConfetti();
+
+                            // Show the info box
+                            const infoBox = document.getElementById('infoBox');
+                            infoBox.classList.add('visible');
+
+                            // Show the RSVP section
+                            const rsvpSection = document.getElementById('rsvpSection');
+                            rsvpSection.classList.add('visible');
+                        }, 200);
+                    }
+                }, stopTimes[index]);
+            });
+        }
+
+        // Start spinning when page loads
+        startSpinning();
+
+        function createConfetti() {
+            const colors = [
+                '#d4af37',
+                '#ff4d4d',
+                '#fff',
+                '#00693e',
+                '#c41e3a',
+                '#ff69b4',
+                '#00ffff',
+                '#ffd700',
+            ];
+            const shapes = ['square', 'rectangle', 'circle'];
+
+            for (let i = 0; i < 200; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background =
+                        colors[Math.floor(Math.random() * colors.length)];
+
+                    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                    if (shape === 'rectangle') {
+                        confetti.style.width = Math.random() * 8 + 4 + 'px';
+                        confetti.style.height = Math.random() * 16 + 10 + 'px';
+                    } else if (shape === 'circle') {
+                        const size = Math.random() * 10 + 6 + 'px';
+                        confetti.style.width = size;
+                        confetti.style.height = size;
+                        confetti.style.borderRadius = '50%';
+                    } else {
+                        const size = Math.random() * 12 + 6 + 'px';
+                        confetti.style.width = size;
+                        confetti.style.height = size;
+                    }
+
+                    confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 4500);
+                }, i * 15);
+            }
+        }
+    </script>
+</body>
+
+</html>
